@@ -16,8 +16,10 @@ def number_to_letter(number: int) -> str:
         return "!"
     elif number == 29:
         return ","
+    elif number == 0:
+        return " "
     else:
-        raise ValueError("Not defined number")
+        return "?"
     
 
 A = np.array([[0, -1/2, 1, 4], 
@@ -72,12 +74,27 @@ message = np.array([[-11, 4, 34, 86],
 
     #print(message[0, :])
 
-while len(message) > 0:
-    decoded_row = message[0, :] @ A_inv
+for row in message:
+    decoded_row = row @ A_inv 
     for num in decoded_row:
-        num_int = int(round(num))
-        num_int = ((num_int - 1) % 29) + 1  # wrap into 1-29
+        num_int = int(num)
         print(number_to_letter(num_int), end="")
-    message = np.delete(message, 0, axis=0)
-
 print()
+
+
+
+
+
+'''
+C = np.array([-14, 33/2, 23, 36])
+decoded_row = np.rint(C @ A_inv).astype(int)
+# Decode first row
+[-11, 4, 34, 86]
+
+for num in decoded_row:
+    # wrap numbers into 1-29 to avoid errors
+    num_int = ((num - 1) % 29) + 1
+    print(number_to_letter(num_int), end="")
+print()
+#print('WITH,THESE,SPOKEN,WORDS,OUR,LEGION,WILL,BE,REZSPSED,FROM,THEYEPYN,EARTH,WILL,BEGIN!,')  # newline
+'''

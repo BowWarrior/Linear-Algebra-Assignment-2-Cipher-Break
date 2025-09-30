@@ -79,22 +79,5 @@ for row in message:
     for num in decoded_row:
         num_int = int(num)
         print(number_to_letter(num_int), end="")
-print()
 
 
-
-
-
-'''
-C = np.array([-14, 33/2, 23, 36])
-decoded_row = np.rint(C @ A_inv).astype(int)
-# Decode first row
-[-11, 4, 34, 86]
-
-for num in decoded_row:
-    # wrap numbers into 1-29 to avoid errors
-    num_int = ((num - 1) % 29) + 1
-    print(number_to_letter(num_int), end="")
-print()
-#print('WITH,THESE,SPOKEN,WORDS,OUR,LEGION,WILL,BE,REZSPSED,FROM,THEYEPYN,EARTH,WILL,BEGIN!,')  # newline
-'''

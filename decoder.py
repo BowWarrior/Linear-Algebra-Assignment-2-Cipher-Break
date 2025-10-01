@@ -87,6 +87,3 @@ for row in message:
         num_int = int(num)
         print(number_to_letter(num_int), end="")
 
-
-#[7, 7/2, -2, 0]
-#[18, -27/2, 7, 23]
